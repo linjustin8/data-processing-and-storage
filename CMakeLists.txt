@@ -1,18 +1,15 @@
-cmake_minimum_required(VERSION 3.12) # version can be different
+cmake_minimum_required(VERSION 3.14)
+project(my_project)
 
-set(GOOGLETEST_VERSION 1.15.2)
+# GoogleTest requires at least C++14
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(my_cpp_project) #name of your project
-
-enable_testing() #to  discover tests in test explorer 
-
-add_subdirectory(googletest) # add googletest subdirectory
-
-include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
-
-add_executable(mytests mytests.cpp) # add this executable
-
-target_link_libraries(mytests PRIVATE gtest) # link google test to this executable
-
-include(GoogleTest)
-gtest_discover_tests(mytests) # discovers tests by asking the compiled test executable to enumerate its tests
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
