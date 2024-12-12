@@ -5,43 +5,34 @@
 int InMemoryDB::get(string key)
 {
     if (this->db.find(key) == this->db.end())
-    {
         // assume normal transaction can't be negative
         return -1;
-    }
 
     return this->db[key];
 }
 
-void InMemoryDB::put(string key, int value)
+int InMemoryDB::put(string key, int value)
 {
     if (!transacting)
-    {
-        cerr << "Error: No transaction in place" << endl;
-        return;
-    }
+        return -1;
 
     this->actions.push({key, value});
+    return value;
 }
 
-void InMemoryDB::begin_transaction()
+int InMemoryDB::begin_transaction()
 {
     if (this->transacting)
-    {
-        cerr << "Error: Another transaction is already in place" << endl;
-        return;
-    }
+        return -1;
 
     this->transacting = true;
+    return 0;
 }
 
-void InMemoryDB::commit()
+int InMemoryDB::commit()
 {
     if (!transacting)
-    {
-        cerr << "Error: No transaction in place" << endl;
-        return;
-    }
+        return -1;
 
     while (!this->actions.empty())
     {
@@ -51,15 +42,13 @@ void InMemoryDB::commit()
     }
 
     this->transacting = false;
+    return 0;
 }
 
-void InMemoryDB::rollback()
+int InMemoryDB::rollback()
 {
     if (!transacting)
-    {
-        cerr << "Error: No transaction in place" << endl;
-        return;
-    }
+        return -1;
 
     while (!this->actions.empty())
     {
@@ -67,4 +56,5 @@ void InMemoryDB::rollback()
     }
 
     this->transacting = false;
+    return 0;
 }

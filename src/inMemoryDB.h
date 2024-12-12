@@ -18,8 +18,8 @@ private:
 public:
     InMemoryDB() : transacting(false) {};
     int get(string key);
-    void put(string key, int value);
-    void begin_transaction();
-    void commit();
-    void rollback();
+    int put(string key, int value);
+    int begin_transaction();
+    int commit();
+    int rollback();
 };
