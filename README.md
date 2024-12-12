@@ -18,7 +18,7 @@ git clone https://github.com/linjustin8/data-processing-and-storage.git
 - `chmod +x test.sh`
 - `./test.sh`
 
-8. Test results will be displayed in terminal
+6. Test results will be displayed in terminal
 
 *NOTE: *test.cpp will show an error*
 
