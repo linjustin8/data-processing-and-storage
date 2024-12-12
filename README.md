@@ -8,11 +8,15 @@
 git clone https://github.com/linjustin8/data-processing-and-storage.git
 ```
 
-2. Make sure both a C++ compiler and [CMake ](https://cmake.org/download/)is installed and configured.
-3. Open a terminal and navigate to the project directory
-4. If on Windows run `./test.bat`
-5. If on Unix Operating System run `./test.sh`
-6. Test results will be displayed in terminal
+2. Make sure both a C++ compiler and [CMake](https://cmake.org/download/) is installed and configured.
+   - If on Windows, use link provided
+   - If on Unix System, run command `sudo apt-get install cmake`
+4. Open a terminal and navigate to the project directory
+5. If on Windows run `./test.bat`
+6. If on Unix Operating System run:
+  - `chmod +x test.sh`
+  - `./test.sh`
+8. Test results will be displayed in terminal
 
 *NOTE: *test.cpp will show an error*
 
