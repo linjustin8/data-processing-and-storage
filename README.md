@@ -8,7 +8,7 @@
 git clone https://github.com/linjustin8/data-processing-and-storage.git
 ```
 
-2. Make sure both a C++ compiler and [CMake ](https://cmake.org/)is installed and configured.
+2. Make sure both a C++ compiler and [CMake ](https://cmake.org/download/)is installed and configured.
 3. Open a terminal and navigate to the project directory
 4. If on Windows run `./test.bat`
 5. If on Unix Operating System run `./test.sh`
