@@ -14,9 +14,8 @@ git clone https://github.com/linjustin8/data-processing-and-storage.git
 3. Open a terminal and navigate to the project directory
 4. If on Windows run `./test.bat`
 5. If on Unix Operating System run:
-
-- `chmod +x test.sh`
-- `./test.sh`
+   - `chmod +x test.sh`
+   - `./test.sh`
 
 6. Test results will be displayed in terminal
 
